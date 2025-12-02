@@ -3,58 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Villa | Galerie Photos</title>
+    <title>La Villa | Galerie & Détails</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* (Même styles de base que index.html pour la cohérence) */
+        /* --- STYLES GÉNÉRAUX --- */
         :root { --primary: #2C3E50; --accent: #C07C4F; --light: #F9F9F9; --text: #4A4A4A; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; color: var(--text); background: white; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary); }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         
-        /* Nav sombre pour cette page */
+        /* NAVIGATION */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: var(--primary); }
         .logo { font-size: 1.5rem; font-weight: bold; color: white; letter-spacing: 2px; }
         .nav-links a { margin-left: 30px; color: white; font-weight: 500; text-transform: uppercase; font-size: 0.9rem; }
         .nav-links a:hover { color: var(--accent); }
         .nav-links a.active { border-bottom: 2px solid var(--accent); }
 
-        /* Contenu */
+        /* HEADER SIMPLE */
         .header-small { padding: 60px 20px; text-align: center; background: var(--light); }
-        .header-small h1 { font-size: 3rem; }
+        .header-small h1 { font-size: 3rem; margin-bottom: 10px; }
+        .header-small p { font-size: 1.1rem; color: #666; }
 
+        /* SECTIONS DÉTAILS */
         .details-container { max-width: 1200px; margin: 0 auto; padding: 50px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .details-text h2 { margin-bottom: 20px; font-size: 2rem; }
         .details-text p { line-height: 1.7; margin-bottom: 20px; color: #666; }
+        
+        /* LISTE ÉQUIPEMENTS */
         .amenities ul { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .amenities li::before { content: "•"; color: var(--accent); font-weight: bold; display: inline-block; width: 1em; }
 
-        /* Galerie Grille */
+        /* --- GALERIE PHOTO --- */
         .gallery-section { background: var(--primary); padding: 80px 20px; }
         .gallery-section h2 { color: white; text-align: center; margin-bottom: 50px; font-size: 2.5rem; }
+        
         .gallery-grid {
             max-width: 1200px; margin: 0 auto;
             display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 20px;
         }
-        .gallery-item { position: relative; overflow: hidden; height: 300px; border-radius: 4px; }
+        
+        .gallery-item { position: relative; overflow: hidden; height: 300px; border-radius: 4px; cursor: pointer; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .gallery-item:hover img { transform: scale(1.05); }
-        /* Images spéciales larges */
-        .wide { grid-column: span 2; }
         
+        /* Images larges (prennent 2 colonnes sur écran large) */
+        .wide { grid-column: span 2; }
+
+        /* --- STYLE LIGHTBOX (PLEIN ÉCRAN) --- */
+        #lightbox {
+            display: none; 
+            position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; 
+            background-color: rgba(0,0,0,0.95); overflow: auto;
+            align-items: center; justify-content: center;
+        }
+        #lightbox-content {
+            max-width: 90%; max-height: 90vh; 
+            border: 2px solid white; box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            animation: zoom 0.3s;
+        }
+        .close {
+            position: absolute; top: 20px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 1001;
+        }
+        .close:hover { color: var(--accent); }
+        
+        @keyframes zoom { from {transform:scale(0.8); opacity:0} to {transform:scale(1); opacity:1} }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .details-container { grid-template-columns: 1fr; }
-            .wide { grid-column: span 1; }
+            .details-container { grid-template-columns: 1fr; gap: 30px; }
+            .wide { grid-column: span 1; } /* Sur mobile, plus de "wide", tout est sur 1 colonne */
             nav { padding: 20px; flex-direction: column; }
             .nav-links { margin-top: 15px; }
+            .details-container[style*="rtl"] { direction: ltr !important; } /* Annule l'inversion sur mobile */
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">SUNVILLA SANARY</div>
+        <div class="logo">VILLA SANARY</div>
         <div class="nav-links">
             <a href="index.html">Accueil</a>
             <a href="villa.html" class="active">La Villa & Photos</a>
@@ -64,25 +92,26 @@
 
     <div class="header-small">
         <h1>Espaces de Vie</h1>
-        <p>Un intérieur de 240m² pensé pour la convivialité</p>
+        <p>Un intérieur de 240m² pensé pour la convivialité et la détente</p>
     </div>
 
     <section class="details-container">
         <div class="details-text">
             <h2>Le Salon Cathédrale</h2>
             <p>Le cœur de la maison offre un volume spectaculaire avec ses plafonds à la française peints en blanc. Baigné de lumière grâce aux baies vitrées donnant sur la terrasse, cet espace mêle charme provençal (sol en terre cuite) et confort moderne.</p>
-            <p>Détendez-vous dans les canapés profonds, profitez du piano ou réunissez-vous autour de la grande table à manger.</p>
+            <p>Détendez-vous dans les canapés profonds, profitez du piano ou réunissez-vous autour de la grande table à manger familiale.</p>
         </div>
-        <div>
-            <img src="20250403_153307 20250403_153307.jpg.jpg" alt="Salon Haut Plafond" style="width:100%; border-radius:5px; box-shadow: 10px 10px 0 var(--accent);">
+        <div class="gallery-item" style="height: 400px; cursor: default;">
+            <img src="20250403_153307 20250403_153307.jpg.jpg" alt="Salon Haut Plafond">
         </div>
     </section>
 
-    <section class="details-container" style="direction: rtl;"> <div class="details-text" style="direction: ltr;">
-            <h2>Cuisine & Repas</h2>
+    <section class="details-container" style="direction: rtl;">
+        <div class="details-text" style="direction: ltr;">
+            <h2>Cuisine & Équipements</h2>
             <p>La cuisine moderne, avec ses façades rouges dynamiques, est entièrement équipée pour les gastronomes. Elle s'ouvre directement sur une terrasse couverte, idéale pour les petits-déjeuners à l'abri du soleil.</p>
             <div class="amenities">
-                <h3>Équipements</h3>
+                <h3>Tout le confort inclus :</h3>
                 <ul>
                     <li>Wifi Haut Débit</li>
                     <li>Grande TV écran plat</li>
@@ -93,37 +122,86 @@
                 </ul>
             </div>
         </div>
-        <div>
-            <img src="20250403_152707 20250403_152707.jpg.jpg" alt="Cuisine Moderne" style="width:100%; border-radius:5px; box-shadow: -10px 10px 0 var(--accent);">
+        <div class="gallery-item" style="height: 400px; cursor: default;">
+            <img src="20250403_152707 20250403_152707.jpg.jpg" alt="Cuisine Moderne">
         </div>
     </section>
 
     <section class="gallery-section">
-        <h2>Galerie</h2>
+        <h2>Galerie Complète</h2>
         <div class="gallery-grid">
+            
+            <div class="gallery-item wide">
+                <img src="20251007_160330.jpg" alt="Vue Panoramique Collines">
+            </div>
+
             <div class="gallery-item wide">
                 <img src="20250403_162550 20250403_162550.jpg.jpg" alt="Salon Grand Angle">
             </div>
+
             <div class="gallery-item">
-                <img src="20250621_131544 20250621_131544.jpg.jpg" alt="Piscine">
+                <img src="20250621_131517 20250621_131517.jpg.jpg" alt="Détente Piscine">
             </div>
+
             <div class="gallery-item">
-                <img src="20250403_152805 20250403_152805.jpg.jpg" alt="Terrasse Repas">
+                <img src="20250621_131544 20250621_131544.jpg.jpg" alt="Piscine Turquoise">
             </div>
+
+            <div class="gallery-item wide">
+                <img src="20250418_172243 20250418_172243.jpg.jpg" alt="Grand Jardin Oliveraie">
+            </div>
+
             <div class="gallery-item">
                 <img src="20250418_162540 20250418_162540.jpg.jpg" alt="Chambre Blanche">
             </div>
+
             <div class="gallery-item">
                 <img src="20250403_151156 20250403_151156.jpg.jpg" alt="Chambre Terracotta">
             </div>
+
             <div class="gallery-item">
-                <img src="e-p1.jpg" alt="Chambr Terracotta">
+                <img src="20250403_152805 20250403_152805.jpg.jpg" alt="Terrasse Repas">
             </div>
-            <div class="gallery-item wide">
-                <img src="20250418_172243 20250418_172243.jpg.jpg" alt="Grand Jardin">
-            </div>
+
         </div>
     </section>
+
+    <footer style="background: var(--primary); color: white; text-align: center; padding: 20px;">
+        <p>© 2025 Villa Sanary Hills. Tous droits réservés.</p>
+    </footer>
+
+    <div id="lightbox">
+        <span class="close">&times;</span>
+        <img id="lightbox-content">
+    </div>
+
+    <script>
+        // Sélection des éléments
+        var modal = document.getElementById("lightbox");
+        var modalImg = document.getElementById("lightbox-content");
+        var images = document.querySelectorAll(".gallery-section .gallery-item img"); // Cible seulement les images de la galerie
+        var span = document.getElementsByClassName("close")[0];
+
+        // Ajouter le clic sur chaque image
+        images.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex"; // Affiche la boite noire
+                modalImg.src = this.src;      // Met l'image cliquée dedans
+            }
+        });
+
+        // Fermer en cliquant sur la croix
+        span.onclick = function() { 
+            modal.style.display = "none";
+        }
+
+        // Fermer en cliquant à côté de l'image
+        modal.onclick = function(e) {
+            if (e.target !== modalImg) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
