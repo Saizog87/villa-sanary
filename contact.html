@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Direct | Villa Sanary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #2C3E50; --accent: #C07C4F; --light: #F9F9F9; --text: #4A4A4A; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; color: var(--text); background: var(--light); display: flex; flex-direction: column; min-height: 100vh; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary); }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); letter-spacing: 2px; }
+        .nav-links a { margin-left: 30px; color: var(--primary); font-weight: 500; text-transform: uppercase; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a.active { border-bottom: 2px solid var(--accent); }
+
+        .contact-container {
+            flex: 1;
+            display: flex;
+            max-width: 1000px;
+            margin: 50px auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .contact-info { flex: 1; padding: 50px; }
+        /* Image de fond : Vue Panoramique */
+        .contact-image { 
+            flex: 1; 
+            background: url('20251007_160330.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+
+        .price-box {
+            background: var(--light);
+            padding: 20px;
+            border-left: 4px solid var(--accent);
+            margin: 30px 0;
+        }
+        .price { font-size: 1.5rem; color: var(--accent); font-weight: bold; font-family: 'Playfair Display', serif; }
+
+        /* Styles pour le contact direct */
+        .direct-contact {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid var(--light);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .host-name {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        .phone-number {
+            display: block;
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            margin: 10px 0;
+        }
+        .phone-number:hover {
+            color: #a06035;
+            transform: scale(1.05);
+        }
+        .call-action {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        footer { background: var(--primary); color: white; padding: 20px; text-align: center; margin-top: auto; }
+
+        @media (max-width: 768px) {
+            .contact-container { flex-direction: column; margin: 20px; }
+            .contact-image { height: 200px; }
+            nav { padding: 20px; flex-direction: column; }
+            .phone-number { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">VILLA SANARY</div>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="villa.html">La Villa & Photos</a>
+            <a href="contact.html" class="active">Tarifs & Contact</a>
+        </div>
+    </nav>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <h1>Contact & Réservation</h1>
+            <p>Nous privilégions le contact direct pour vous offrir le meilleur accueil et éviter les frais de plateforme. N'hésitez pas à nous appeler pour vérifier les disponibilités.</p>
+            
+            <div class="price-box">
+                <h3>Tarifs Directs</h3>
+                <span class="price">Env. 2 200 € / semaine</span>
+                <p style="font-size: 0.9rem; margin-top: 5px;">(Tarif variable selon la saison - Nous consulter)</p>
+            </div>
+
+            <div class="direct-contact">
+                <p class="host-name">Votre contact : Lynda</p>
+                <a href="tel:0651398030" class="phone-number">06 51 39 80 30</a>
+                <p class="call-action">Appel ou SMS</p>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h3>Localisation</h3>
+                <p>📍 Sanary-sur-Mer, Var (83110)<br>
+                À 5 min des plages (Portissol, La Gorguette)<br>
+                À 15 min de la Gare TGV Toulon</p>
+            </div>
+        </div>
+        <div class="contact-image"></div>
+    </div>
+
+    <footer>
+        <p>© 2025 Villa Sanary Hills. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>

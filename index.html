@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa Sanary Hills | Luxe & Sérénité</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* --- STYLES GLOBAUX (Repris sur toutes les pages pour simplicité) --- */
+        :root {
+            --primary: #2C3E50; /* Bleu Nuit */
+            --accent: #C07C4F; /* Terracotta (Rappel toit/sol) */
+            --light: #F9F9F9;
+            --text: #4A4A4A;
+        }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; color: var(--text); background: var(--light); overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--primary); margin: 0; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; position: absolute; width: 90%; z-index: 10; top:0; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: white; letter-spacing: 2px; }
+        .nav-links a { margin-left: 30px; color: white; font-weight: 500; text-transform: uppercase; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a.active { border-bottom: 2px solid var(--accent); }
+
+        /* Hero Header */
+        header.hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('20251007_160330.jpg'); /* Vue Panoramique */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        header.hero h1 { font-size: 4rem; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); color: white; }
+        header.hero p { font-size: 1.5rem; font-weight: 300; letter-spacing: 1px; }
+        .btn-gold {
+            margin-top: 40px;
+            padding: 15px 40px;
+            background: var(--accent);
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+        .btn-gold:hover { background: #a06035; transform: translateY(-2px); }
+
+        /* Section Résumé */
+        .intro { padding: 80px 10%; text-align: center; background: white; }
+        .intro h2 { font-size: 2.5rem; margin-bottom: 30px; }
+        .intro p { max-width: 800px; margin: 0 auto; line-height: 1.8; font-size: 1.1rem; }
+        .icons-grid { display: flex; justify-content: center; gap: 50px; margin-top: 50px; flex-wrap: wrap; }
+        .icon-box { text-align: center; }
+        .icon-box span { font-size: 2.5rem; display: block; margin-bottom: 10px; color: var(--accent); }
+
+        /* Preview Image */
+        .parallax-preview {
+            height: 60vh;
+            background: url('20250621_131517 20250621_131517.jpg.jpg'); /* Piscine Vue 1 */
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .parallax-content { background: white; padding: 40px; max-width: 400px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+
+        /* Footer */
+        footer { background: var(--primary); color: white; padding: 40px; text-align: center; font-size: 0.9rem; }
+        footer a { color: var(--accent); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header.hero h1 { font-size: 2.5rem; }
+            nav { padding: 20px; flex-direction: column; }
+            .nav-links { margin-top: 20px; }
+            .nav-links a { margin: 0 10px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">VILLA SANARY</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Accueil</a>
+            <a href="villa.html">La Villa & Photos</a>
+            <a href="contact.html">Tarifs & Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>L'Échappée Provençale</h1>
+        <p>Une villa d'exception de 240m² à Sanary-sur-Mer</p>
+        <a href="contact.html" class="btn-gold">Réserver votre séjour</a>
+    </header>
+
+    <section class="intro">
+        <h2>Luxe, Calme et Nature</h2>
+        <p>
+            Nichée au cœur d'une pinède préservée avec une vue panoramique sur les collines et la mer au loin, cette propriété de 5000m² est une invitation à la détente absolue. Profitez d'une piscine chauffée, d'intérieurs spacieux au design soigné et d'une atmosphère chaleureuse idéale pour 8 personnes.
+        </p>
+        <div class="icons-grid">
+            <div class="icon-box"><span>🏊</span>Piscine Chauffée</div>
+            <div class="icon-box"><span>📐</span>240 m² Habitable</div>
+            <div class="icon-box"><span>🛌</span>4 Chambres</div>
+            <div class="icon-box"><span>❄️</span>Climatisation</div>
+        </div>
+    </section>
+
+    <section class="parallax-preview">
+        <div class="parallax-content">
+            <h3>Vie Extérieure</h3>
+            <p style="margin: 20px 0;">Un jardin luxuriant, une piscine turquoise et des terrasses ombragées pour vos déjeuners d'été.</p>
+            <a href="villa.html" style="color: var(--accent); font-weight: bold; border-bottom: 1px solid var(--accent);">Découvrir la villa</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>VILLA SANARY HILLS - LOCATION SAISONNIÈRE DE PRESTIGE</p>
+        <p>Sanary-sur-Mer, Var, France</p>
+    </footer>
+
+</body>
+</html>

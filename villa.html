@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Villa | Galerie Photos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* (Même styles de base que index.html pour la cohérence) */
+        :root { --primary: #2C3E50; --accent: #C07C4F; --light: #F9F9F9; --text: #4A4A4A; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; color: var(--text); background: white; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary); }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        
+        /* Nav sombre pour cette page */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: var(--primary); }
+        .logo { font-size: 1.5rem; font-weight: bold; color: white; letter-spacing: 2px; }
+        .nav-links a { margin-left: 30px; color: white; font-weight: 500; text-transform: uppercase; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a.active { border-bottom: 2px solid var(--accent); }
+
+        /* Contenu */
+        .header-small { padding: 60px 20px; text-align: center; background: var(--light); }
+        .header-small h1 { font-size: 3rem; }
+
+        .details-container { max-width: 1200px; margin: 0 auto; padding: 50px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .details-text h2 { margin-bottom: 20px; font-size: 2rem; }
+        .details-text p { line-height: 1.7; margin-bottom: 20px; color: #666; }
+        .amenities ul { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .amenities li::before { content: "•"; color: var(--accent); font-weight: bold; display: inline-block; width: 1em; }
+
+        /* Galerie Grille */
+        .gallery-section { background: var(--primary); padding: 80px 20px; }
+        .gallery-section h2 { color: white; text-align: center; margin-bottom: 50px; font-size: 2.5rem; }
+        .gallery-grid {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item { position: relative; overflow: hidden; height: 300px; border-radius: 4px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        /* Images spéciales larges */
+        .wide { grid-column: span 2; }
+        
+        @media (max-width: 768px) {
+            .details-container { grid-template-columns: 1fr; }
+            .wide { grid-column: span 1; }
+            nav { padding: 20px; flex-direction: column; }
+            .nav-links { margin-top: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">VILLA SANARY</div>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="villa.html" class="active">La Villa & Photos</a>
+            <a href="contact.html">Tarifs & Contact</a>
+        </div>
+    </nav>
+
+    <div class="header-small">
+        <h1>Espaces de Vie</h1>
+        <p>Un intérieur de 240m² pensé pour la convivialité</p>
+    </div>
+
+    <section class="details-container">
+        <div class="details-text">
+            <h2>Le Salon Cathédrale</h2>
+            <p>Le cœur de la maison offre un volume spectaculaire avec ses plafonds à la française peints en blanc. Baigné de lumière grâce aux baies vitrées donnant sur la terrasse, cet espace mêle charme provençal (sol en terre cuite) et confort moderne.</p>
+            <p>Détendez-vous dans les canapés profonds, profitez du piano ou réunissez-vous autour de la grande table à manger.</p>
+        </div>
+        <div>
+            <img src="20250403_153307 20250403_153307.jpg.jpg" alt="Salon Haut Plafond" style="width:100%; border-radius:5px; box-shadow: 10px 10px 0 var(--accent);">
+        </div>
+    </section>
+
+    <section class="details-container" style="direction: rtl;"> <div class="details-text" style="direction: ltr;">
+            <h2>Cuisine & Repas</h2>
+            <p>La cuisine moderne, avec ses façades rouges dynamiques, est entièrement équipée pour les gastronomes. Elle s'ouvre directement sur une terrasse couverte, idéale pour les petits-déjeuners à l'abri du soleil.</p>
+            <div class="amenities">
+                <h3>Équipements</h3>
+                <ul>
+                    <li>Wifi Haut Débit</li>
+                    <li>Grande TV écran plat</li>
+                    <li>Lave-linge & Sèche-linge</li>
+                    <li>Cuisine tout équipée</li>
+                    <li>Barbecue Extérieur</li>
+                    <li>Climatisation</li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <img src="20250403_152707 20250403_152707.jpg.jpg" alt="Cuisine Moderne" style="width:100%; border-radius:5px; box-shadow: -10px 10px 0 var(--accent);">
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2>Galerie Complète</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item wide">
+                <img src="20250403_162550 20250403_162550.jpg.jpg" alt="Salon Grand Angle">
+            </div>
+            <div class="gallery-item">
+                <img src="20250621_131544 20250621_131544.jpg.jpg" alt="Piscine">
+            </div>
+            <div class="gallery-item">
+                <img src="20250403_152805 20250403_152805.jpg.jpg" alt="Terrasse Repas">
+            </div>
+            <div class="gallery-item">
+                <img src="20250418_162540 20250418_162540.jpg.jpg" alt="Chambre Blanche">
+            </div>
+            <div class="gallery-item">
+                <img src="20250403_151156 20250403_151156.jpg.jpg" alt="Chambre Terracotta">
+            </div>
+            <div class="gallery-item wide">
+                <img src="20250418_172243 20250418_172243.jpg.jpg" alt="Grand Jardin">
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
